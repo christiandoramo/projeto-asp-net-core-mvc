@@ -1,9 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplicationMVC.Data;
+
+// RAPHAEL WASHINGTON MODIFICAÇÃO
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebApplicationMVCContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("WebApplicationMVCContext") ?? throw new InvalidOperationException("Connection string 'WebApplicationMVCContext' not found.")));
+options.UseMySql(builder.Configuration.GetConnectionString("WebApplicationMVCContext"),
+ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("WebApplicationMVCContext")),
+builder => builder.MigrationsAssembly("WebApplicationMVC")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
