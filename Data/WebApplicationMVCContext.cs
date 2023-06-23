@@ -15,5 +15,11 @@ namespace WebApplicationMVC.Data
         }
 
         public DbSet<WebApplicationMVC.Models.Department> Department { get; set; } = default!;
+
+        public DbSet<WebApplicationMVC.Models.SalesRecord> SalesRecord { get; set; } = default!;
+
+        public DbSet<WebApplicationMVC.Models.Seller> Seller { get; set; } = default!;
+
+
     }
 }
