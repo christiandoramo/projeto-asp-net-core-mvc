@@ -15,5 +15,10 @@ namespace WebApplicationMVC.Services
             return _context.Seller.ToList();
             // acessará o DbSet<Seller> no contexto e tras os dados como lista deve ser assincrona pois vai demorar aleatoriamente
         }
+        public void Insert(Seller s)
+        {
+            _context.Add(s);
+            _context.SaveChanges();
+        }
     }
 }
