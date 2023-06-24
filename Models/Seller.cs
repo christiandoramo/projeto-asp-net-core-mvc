@@ -2,7 +2,7 @@
 {
     public class Seller
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string? Name { get; set; }
         public string?  Email { get; set; }
         public  double BaseSalary { get; set; }
@@ -14,9 +14,9 @@
         {
         }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary,Department department)
+        public Seller(int Id, string name, string email, DateTime birthDate, double baseSalary,Department department)
         {
-            this.id = id;
+            this.Id = Id;
             Name = name;
             Email = email;
             BaseSalary = baseSalary;

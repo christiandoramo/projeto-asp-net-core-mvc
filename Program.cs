@@ -7,15 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionStringMysql = builder.Configuration.GetConnectionString("WebApplicationMVCContext");
 builder.Services.AddDbContext<WebApplicationMVCContext>(options => options.UseMySql(connectionStringMysql, ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("WebApplicationMVCContext")))); // parte ausente no fork de medinasp
-builder.Services.AddScoped<SeedingService>();
 // Adicionado para fazer o uso do Mysql no lugar de usar o codigo no Startup (versao anterior)
 
-//builder.Services.AddDbContext<WebApplicationMVCContext>(options =>
-//options.UseMySql(builder.Configuration.GetConnectionString("WebApplicationMVCContext"),
-//ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("WebApplicationMVCContext")),
-//builder => builder.MigrationsAssembly("WebApplicationMVC")));
 
 
+
+builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
+//Adicionando serviços ao escopo de serviços do app - depois vai para o construtor dos controllers
+// Adicionado para fazer o uso do Mysql no lugar de usar o codigo no Startup (versao anterior)
 
 
 builder.Services.AddControllersWithViews();
