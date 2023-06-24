@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebApplicationMVC.Data;
+using WebApplicationMVC.Services;
 using WebApplicationMVC.Models;
 
 namespace WebApplicationMVC.Controllers

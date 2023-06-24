@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using WebApplicationMVC.Models;
 
-namespace WebApplicationMVC.Data
+namespace WebApplicationMVC.Models
 {
     public class WebApplicationMVCContext : DbContext
     {
-        public WebApplicationMVCContext (DbContextOptions<WebApplicationMVCContext> options)
+        public WebApplicationMVCContext(DbContextOptions<WebApplicationMVCContext> options)
             : base(options)
         {
         }
 
-        public DbSet<WebApplicationMVC.Models.Department> Department { get; set; } = default!;
+        public DbSet<Department> Department { get; set; } = default!;
 
-        public DbSet<WebApplicationMVC.Models.SalesRecord> SalesRecord { get; set; } = default!;
+        public DbSet<SalesRecord> SalesRecord { get; set; } = default!;
 
-        public DbSet<WebApplicationMVC.Models.Seller> Seller { get; set; } = default!;
+        public DbSet<Seller> Seller { get; set; } = default!;
 
 
     }
