@@ -13,6 +13,7 @@ builder.Services.AddDbContext<WebApplicationMVCContext>(options => options.UseMy
 
 
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<SellerService>();
 //Adicionando serviços ao escopo de serviços do app - depois vai para o construtor dos controllers
 // Adicionado para fazer o uso do Mysql no lugar de usar o codigo no Startup (versao anterior)
@@ -31,7 +32,8 @@ app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
+   // app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
+    // faz o seed sempre que o if inicial dentro de Seed nao é true
 }
 else
 {

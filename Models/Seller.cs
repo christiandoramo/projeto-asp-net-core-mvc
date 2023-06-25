@@ -1,11 +1,21 @@
-﻿namespace WebApplicationMVC.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace WebApplicationMVC.Models
 {
     public class Seller
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public string?  Email { get; set; }
+        public string Name { get; set; }
+        public string  Email { get; set; }
+
+        [Required(ErrorMessage = "{0} required")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be from {1} to {2}")]
+        [Display(Name = "Salário Base")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public  double BaseSalary { get; set; }
+
+        [Display(Name = "Data de Nascimento")]
         public DateTime BirthDate { get; set; }
         public Department? Department { get; set; }
         public int DepartmentId { get; set; }
@@ -15,9 +25,17 @@
         {
         }
 
-        public Seller(int Id, string name, string email, DateTime birthDate, double baseSalary,Department department)
+        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary,Department department)
         {
-            this.Id = Id;
+            Id = id;
+            Name = name;
+            Email = email;
+            BaseSalary = baseSalary;
+            BirthDate = birthDate;
+            Department = department;
+        }
+        public Seller(string name, string email, DateTime birthDate, double baseSalary, Department department)
+        {
             Name = name;
             Email = email;
             BaseSalary = baseSalary;
